@@ -1,0 +1,7 @@
+version: 2
+
+models:
+  - name: obt_sales
+    description: >
+      One Big Table combining fact_sales with all associated dimensions:
+      dim_customer, dim_employee, dim_product, dim_date. Each row is a line item.
