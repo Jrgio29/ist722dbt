@@ -1,0 +1,54 @@
+version: 2
+
+models:
+  - name: fact_sales
+    description: >
+      Unified fact table for both Fudgemart (retail) and Fudgeflix (subscription) sales. 
+      Each row represents a single product or plan transaction.
+    columns:
+      - name: sales_sk
+        description: Surrogate key for the fact_sales table
+        tests:
+          - not_null
+          - unique
+
+      - name: order_id
+        description: Business key of the transaction
+
+
+      - name: customer_id
+        description: Business customer or account identifier
+
+      - name: product_id
+        description: Business key of the product (retail only)
+
+
+      - name: plan_id
+        description: Business key of the plan (subscription only)
+
+
+      - name: sale_date
+        description: Actual transaction date (order date or billing date)
+
+      - name: quantity
+        description: Number of units or plans sold
+        tests:
+          - not_null
+
+      - name: unit_price
+        description: Retail price or plan price
+        tests:
+          - not_null
+
+      - name: discount
+        description: Discount applied to the sale (default is 0)
+
+      - name: total_price
+        description: Final sale value (unit_price * quantity - discount)
+        tests:
+          - not_null
+
+      - name: sale_type
+        description: retail or subscription
+        tests:
+          - not_null

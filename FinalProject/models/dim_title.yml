@@ -1,0 +1,49 @@
+version: 2
+
+models:
+  - name: dim_title
+    description: >
+      Title dimension combining title metadata for each piece of content in Fudgeflix.
+      Each row represents a unique title (movie or show) with rich descriptive attributes.
+    columns:
+      - name: title_sk
+        description: Surrogate key for the title
+        tests:
+          - not_null
+          - unique
+
+      - name: title_id
+        description: Business identifier for the title
+        tests:
+          - not_null
+          - unique
+
+      - name: title_name
+        description: Name of the title (e.g., movie or show)
+
+      - name: media_type
+        description: Media type (e.g., Movie, Series)
+
+      - name: parental_rating
+        description: Parental rating like PG, R, etc.
+
+      - name: title_release_year
+        description: Year the title was released
+
+      - name: title_runtime
+        description: Duration of the content in seconds
+
+      - name: title_synopsis
+        description: Description or synopsis of the title
+
+      - name: title_bluray_available
+        description: Whether Blu-ray is available
+
+      - name: title_dvd_available
+        description: Whether DVD is available
+
+      - name: title_instant_available
+        description: Whether it is available for instant streaming
+
+      - name: date_modified
+        description: Timestamp when the title metadata was last modified

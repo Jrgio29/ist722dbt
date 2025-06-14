@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: fact_streaming_engagement
+    description: >
+      Streaming engagement fact table containing one row per title streamed by a customer,
+      joined with customer, title, and date dimensions.
+    columns:
+      - name: stream_event_id
+        description: Unique ID for the streaming event
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_id
+        description: Foreign key to dim_customer
+        tests:
+          - not_null
+
+
+      - name: queue_date_key
+        description: Foreign key to dim_date (queue)
+
+      - name: title_id
+        description: Foreign key to dim_title
+        tests:
+          - not_null
+
+      - name: minutes_watched
+        description: Duration in minutes the title was streamed
+        tests: []
+
+      - name: user_rating
+        description: User-provided rating of the title (if any)
+        tests: []

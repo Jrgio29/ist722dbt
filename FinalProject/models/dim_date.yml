@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: dim_date
+    description: Conformed date dimension built from actual activity dates
+    columns:
+      - name: date_key
+        tests: [not_null, unique]
+      - name: date
+        tests: [not_null]
+      - name: year
+      - name: month
+      - name: day
+      - name: weekday_number
+      - name: weekday_name
+      - name: month_name
+      - name: is_weekend

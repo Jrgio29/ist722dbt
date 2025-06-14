@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: dim_plan
+    description: Dimension table for subscription plans offered by Fudgeflix
+    columns:
+      - name: plan_sk
+        description: Surrogate key for the subscription plan
+        tests:
+          - not_null
+          - unique
+
+      - name: plan_id
+        description: Business key from source system
+        tests:
+          - not_null
+          - unique
+
+      - name: plan_name
+        description: Name of the plan
+
+      - name: plan_price
+        description: Monthly price of the plan
+
+      - name: plan_current
+        description: Indicates if the plan is currently active
