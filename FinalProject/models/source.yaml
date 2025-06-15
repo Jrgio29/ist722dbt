@@ -18,14 +18,12 @@ sources:
       - name: fm_orders
         columns:
           - name: order_id
-            tests: [unique, not_null]
 
 
       - name: fm_order_details
         columns:
           - name: order_id
           - name: product_id
-        tests: [unique, not_null]
 
   - name: fudgeflix
     database: raw

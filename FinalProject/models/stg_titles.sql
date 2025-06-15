@@ -1,5 +1,5 @@
 with source as (
-    select * from {{ source('fudgeflix', 'ff_titles') }}
+    select * from raw.fudgeflix_v3.ff_titles
 ),
 
 renamed as (
@@ -14,7 +14,7 @@ renamed as (
         title_bluray_available,
         title_dvd_available,
         title_instant_available,
-        to_timestamp_ntz(title_date_modified / 1000000) as date_modified
+        to_timestamp_ntz(cast(title_date_modified / 1000000 as bigint)) as date_modified
     from source
 )
 

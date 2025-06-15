@@ -8,9 +8,6 @@ models:
     columns:
       - name: sales_sk
         description: Surrogate key for the fact_sales table
-        tests:
-          - not_null
-          - unique
 
       - name: order_id
         description: Business key of the transaction

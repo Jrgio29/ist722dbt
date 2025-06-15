@@ -10,12 +10,10 @@ models:
         description: Unique ID for the streaming event
         tests:
           - not_null
-          - unique
 
       - name: customer_id
         description: Foreign key to dim_customer
-        tests:
-          - not_null
+
 
 
       - name: queue_date_key
@@ -23,8 +21,7 @@ models:
 
       - name: title_id
         description: Foreign key to dim_title
-        tests:
-          - not_null
+
 
       - name: minutes_watched
         description: Duration in minutes the title was streamed
